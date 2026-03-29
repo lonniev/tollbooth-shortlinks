@@ -1,6 +1,6 @@
 """Tests for slug generation and basic tool structure."""
 
-from server import _generate_slug, _ADJECTIVES, _NOUNS, _VERBS
+from server import _ADJECTIVES, _NOUNS, _VERBS, _generate_slug
 
 
 def test_slug_format():
