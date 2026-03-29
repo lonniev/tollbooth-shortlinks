@@ -7,14 +7,14 @@
  * and returns a 302 redirect. No interstitial, no marketing page.
  *
  * Environment variables (set in Val Town):
- *   NEON_DATABASE_URL — Neon connection string
+ *   NEON_SHORTLINKS_URL — Neon connection string for the shortlinks database
  */
 
 const TTL_SECONDS = 86400; // 24 hours — must match server.py
 
 async function queryNeon(sql, params = []) {
-  const connStr = Deno.env.get("NEON_DATABASE_URL");
-  if (!connStr) throw new Error("NEON_DATABASE_URL not set");
+  const connStr = Deno.env.get("NEON_SHORTLINKS_URL");
+  if (!connStr) throw new Error("NEON_SHORTLINKS_URL not set");
 
   const host = new URL(connStr).hostname;
   const resp = await fetch(`https://${host}/sql`, {

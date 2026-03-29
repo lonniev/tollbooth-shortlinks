@@ -124,9 +124,9 @@ async def _get_client() -> httpx.AsyncClient:
     global _http_client, _neon_endpoint, _schema_ensured
 
     if _http_client is None:
-        database_url = os.environ.get("NEON_DATABASE_URL")
+        database_url = os.environ.get("NEON_SHORTLINKS_URL")
         if not database_url:
-            raise RuntimeError("NEON_DATABASE_URL environment variable is required")
+            raise RuntimeError("NEON_SHORTLINKS_URL environment variable is required")
 
         parsed = urlparse(database_url)
         _neon_endpoint = f"https://{parsed.hostname}/sql"
@@ -216,7 +216,8 @@ async def create_shortlink(url: str, slug: str | None = None) -> dict[str, Any]:
             return {"success": False, "error": "Could not generate a unique slug."}
 
         redirect_base = os.environ.get(
-            "SHORTLINK_REDIRECT_BASE", "https://tollbooth-shortlinks-redirect.web.val.run"
+            "SHORTLINK_REDIRECT_BASE",
+            "https://tollbooth--b4806c182bb411f1b6fe42dde27851f2.web.val.run",
         )
         short_url = f"{redirect_base}/{chosen_slug}"
 
