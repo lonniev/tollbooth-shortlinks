@@ -77,7 +77,7 @@ The `.fastmcp.yaml` at the repo root is ready for `fastmcp deploy`.
 
 ## DPYC Identity
 
-Tollbooth Shortlinks is registered as an **Advocate** in the DPYC Honor Chain.
+Tollbooth Shortlinks is registered as an **Advocate** in the DPYC Social Contract.
 Peer MCP servers discover its URL via registry lookup:
 
 ```python
@@ -95,15 +95,18 @@ The Tollbooth DPYC™ ecosystem:
 |------|------|
 | [tollbooth-dpyc](https://github.com/lonniev/tollbooth-dpyc) | The wheel -- operator-side credit ledger, BTCPay client, tool gating, constraint engine |
 | [tollbooth-authority](https://github.com/lonniev/tollbooth-authority) | The institution -- fee collection, Schnorr signing, purchase certification |
-| [dpyc-oracle](https://github.com/lonniev/dpyc-oracle) | The oracle -- Honor Chain governance, membership, ban elections |
+| [dpyc-oracle](https://github.com/lonniev/dpyc-oracle) | The oracle -- Social Contract governance, membership, ban elections |
 | [dpyc-community](https://github.com/lonniev/dpyc-community) | The registry -- governance data, operator catalog, community rules |
+| [tollbooth-sample](https://github.com/lonniev/tollbooth-sample) | Reference operator -- weather API with full Tollbooth wiring |
+| [cypher-mcp](https://github.com/lonniev/cypher-mcp) | Monetized graph answers -- named Cypher over Neo4j/AuraDB |
 | [schwab-mcp](https://github.com/lonniev/schwab-mcp) | Charles Schwab brokerage MCP -- trading, quotes, portfolio access |
 | [excalibur-mcp](https://github.com/lonniev/excalibur-mcp) | eXcalibur -- formatted posting to X (Twitter) |
 | [thebrain-mcp](https://github.com/lonniev/thebrain-mcp) | Personal Brain MCP -- thought graphs, knowledge management |
-| [tollbooth-sample](https://github.com/lonniev/tollbooth-sample) | Reference operator -- weather API with full Tollbooth wiring |
+| [taxsort-mcp](https://github.com/lonniev/taxsort-mcp) | Tax sorting and classification MCP |
+| [optionality-mcp](https://github.com/lonniev/optionality-mcp) | Options analytics MCP |
 | **tollbooth-shortlinks** (this repo) | Community utility -- ephemeral short URLs for OAuth flows |
 | [tollbooth-oauth2-collector](https://github.com/lonniev/tollbooth-oauth2-collector) | OAuth2 callback collector -- browser-based token exchange |
-| [pricing-studio](https://github.com/lonniev/pricing-studio) | macOS/iOS app -- operator dashboard and pricing model editor |
+| [tollbooth-pricing-studio](https://github.com/lonniev/tollbooth-pricing-studio) | iOS app -- operator dashboard and pricing model editor |
 
 ## License
 
