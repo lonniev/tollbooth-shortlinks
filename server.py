@@ -22,6 +22,8 @@ from __future__ import annotations
 import logging
 import os
 import random
+from importlib.metadata import PackageNotFoundError
+from importlib.metadata import version as _pkg_version
 from typing import Any
 from urllib.parse import urlparse
 
@@ -31,6 +33,14 @@ from fastmcp import FastMCP
 logger = logging.getLogger(__name__)
 
 _TTL_SECONDS = 86_400  # 24 hours
+
+# The service advertises its own version so deploy-verify can confirm which
+# build is live. Without this, FastMCP reports the framework version instead,
+# leaving the deployed sha unverifiable.
+try:
+    __version__ = _pkg_version("tollbooth-shortlinks")
+except PackageNotFoundError:  # not pip-installed (e.g. running from source tree)
+    __version__ = "0.1.0"
 
 # ---------------------------------------------------------------------------
 # Word-based slug generation
@@ -94,6 +104,7 @@ def _generate_slug() -> str:
 
 mcp = FastMCP(
     "Tollbooth Shortlinks",
+    version=__version__,
     instructions=(
         "Tollbooth Shortlinks — ephemeral, human-friendly short URLs. "
         "This is a community utility with no monetization.\n\n"
@@ -289,6 +300,11 @@ async def shortlink_status() -> dict[str, Any]:
         await _cleanup_expired()
         result = await _execute("SELECT COUNT(*) AS cnt FROM shortlinks")
         count = result["rows"][0]["cnt"] if result.get("rows") else 0
-        return {"status": "healthy", "active_links": count, "ttl_seconds": _TTL_SECONDS}
+        return {
+            "status": "healthy",
+            "version": __version__,
+            "active_links": count,
+            "ttl_seconds": _TTL_SECONDS,
+        }
     except Exception as e:
-        return {"status": "unhealthy", "error": str(e)}
+        return {"status": "unhealthy", "version": __version__, "error": str(e)}
