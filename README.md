@@ -71,7 +71,7 @@ export NEON_SHORTLINKS_URL="postgres://user:pass@ep-xyz.us-east-2.aws.neon.tech/
 python -c "from server import mcp; mcp.run()"
 ```
 
-## Deploy to FastMCP Horizon
+## Deploy to Horizon
 
 The `.fastmcp.yaml` at the repo root is ready for `fastmcp deploy`.
 
