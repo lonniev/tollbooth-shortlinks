@@ -228,7 +228,7 @@ async def create_shortlink(url: str, slug: str | None = None) -> dict[str, Any]:
 
         redirect_base = os.environ.get(
             "SHORTLINK_REDIRECT_BASE",
-            "https://tollbooth--b4806c182bb411f1b6fe42dde27851f2.web.val.run",
+            "https://tollbooth.val.run",
         )
         short_url = f"{redirect_base}/{chosen_slug}"
 
