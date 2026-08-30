@@ -1,0 +1,11 @@
+{
+  "name": "Tollbooth Shortlinks",
+  "source": {
+    "path": "server.py",
+    "entrypoint": "mcp"
+  },
+  "environment": {
+    "type": "uv",
+    "project": "."
+  }
+}
