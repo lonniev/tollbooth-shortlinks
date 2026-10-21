@@ -1,6 +1,6 @@
 [project]
 name = "tollbooth-shortlinks"
-version = "0.1.0"
+version = "0.2.0"
 description = "Ephemeral, human-friendly short URLs for Tollbooth MCP services"
 authors = [{name = "Tollbooth Shortlinks Contributors"}]
 readme = "README.md"
