@@ -1,0 +1,1 @@
+- Python 3.11 is now the minimum, so every install gets the patched dnspython 2.9.

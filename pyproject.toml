@@ -4,7 +4,7 @@ version = "0.2.0"
 description = "Ephemeral, human-friendly short URLs for Tollbooth MCP services"
 authors = [{name = "Tollbooth Shortlinks Contributors"}]
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 license = {text = "Apache-2.0"}
 keywords = ["mcp", "shortlinks", "url-shortener", "tollbooth", "fastmcp"]
 
@@ -29,7 +29,7 @@ py-modules = ["server"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py310"
+target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "W"]
