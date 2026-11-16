@@ -26,12 +26,12 @@ a patron a one-time URL for an OAuth dance, none of that belongs in the path.
 Tollbooth Shortlinks is a **community utility** with no monetization. It turns
 any URL into a memorable four-word phrase like `brave-otter-finds-gold`, stores
 the mapping in Neon Postgres, and expires it after 24 hours. A companion
-Val Town HTTP handler does the 302 redirect with zero interstitial.
+Cloudflare Worker does the 302 redirect with zero interstitial.
 
 ## How It Works
 
 ```
-MCP Server / Patron          Shortlinks MCP        Neon        Val Town
+MCP Server / Patron          Shortlinks MCP        Neon        CF Worker
     |                              |                 |              |
     |-- create_shortlink(url) ---->|-- INSERT ------>|              |
     |<-- short_url ----------------|                 |              |
@@ -64,12 +64,12 @@ pip install -e ".[dev]"
 
 ```bash
 export NEON_SHORTLINKS_URL="<your Neon connection string>"
-# optional: the redirect host put in front of each slug (default https://tollbooth.val.run)
-export SHORTLINK_REDIRECT_BASE="https://tollbooth.val.run"
+# optional: the redirect host put in front of each slug (default https://go.tollbooth-dpyc.com)
+export SHORTLINK_REDIRECT_BASE="https://go.tollbooth-dpyc.com"
 python -c "from server import mcp; mcp.run()"
 ```
 
-The Val Town handler in `val/redirect.js` reads the same `NEON_SHORTLINKS_URL`.
+The redirect Worker in `worker/redirect.js` reads the same `NEON_SHORTLINKS_URL`, set as a Worker secret. A change to it on main deploys it (`.github/workflows/deploy-worker.yml`, which needs the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets).
 
 ## Deploy to Horizon
 

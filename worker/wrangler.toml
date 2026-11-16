@@ -1,0 +1,11 @@
+# The browser redirect for shortlinks: GET /<slug> → 302.
+# Deployed by .github/workflows/deploy-worker.yml on a change to main.
+# Secret: NEON_SHORTLINKS_URL (wrangler secret put NEON_SHORTLINKS_URL).
+name = "tollbooth-shortlinks-redirect"
+main = "redirect.js"
+compatibility_date = "2026-11-01"
+workers_dev = false
+
+routes = [
+  { pattern = "go.tollbooth-dpyc.com", custom_domain = true },
+]
