@@ -1,0 +1,2 @@
+- The shortlink redirect moved from Val Town, which is shutting down, to a Cloudflare Worker at https://go.tollbooth-dpyc.com, and new links use that address.
+- A change to `worker/redirect.js` on main deploys it and checks an unknown slug gets the "Link Not Found" page. It needs the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets, and the Worker secret `NEON_SHORTLINKS_URL`.

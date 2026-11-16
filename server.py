@@ -3,7 +3,7 @@
 Stores slug → URL mappings in Neon Postgres with a 24-hour TTL.
 Slugs are generated as memorable word phrases (e.g. ``brave-otter-finds-gold``).
 
-A companion Val Town HTTP val handles browser GET requests:
+A companion Cloudflare Worker (worker/redirect.js) handles browser GET requests:
 ``GET /<slug>`` → Neon lookup → 302 redirect to the original URL.
 
 Uses Neon's SQL-over-HTTP API via httpx — no asyncpg or C extensions.
@@ -228,7 +228,7 @@ async def create_shortlink(url: str, slug: str | None = None) -> dict[str, Any]:
 
         redirect_base = os.environ.get(
             "SHORTLINK_REDIRECT_BASE",
-            "https://tollbooth.val.run",
+            "https://go.tollbooth-dpyc.com",
         )
         short_url = f"{redirect_base}/{chosen_slug}"
 

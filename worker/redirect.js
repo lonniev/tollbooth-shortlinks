@@ -1,19 +1,19 @@
 /**
  * Tollbooth Shortlinks Redirect — serverless GET handler for short URL redirects.
  *
- * Deployed as a Val Town HTTP val.
+ * Deployed as a Cloudflare Worker at https://go.tollbooth-dpyc.com.
  *
  * Receives GET /<slug>, looks up the target URL in Neon Postgres,
  * and returns a 302 redirect. No interstitial, no marketing page.
  *
- * Environment variables (set in Val Town):
+ * Worker secret:
  *   NEON_SHORTLINKS_URL — Neon connection string for the shortlinks database
  */
 
 const TTL_SECONDS = 86400; // 24 hours — must match server.py
 
-async function queryNeon(sql, params = []) {
-  const connStr = Deno.env.get("NEON_SHORTLINKS_URL");
+async function queryNeon(env, sql, params = []) {
+  const connStr = env.NEON_SHORTLINKS_URL;
   if (!connStr) throw new Error("NEON_SHORTLINKS_URL not set");
 
   const host = new URL(connStr).hostname;
@@ -40,7 +40,7 @@ text-align:center;color:#1a1a1a">
 <p style="color:#666">This shortlink doesn\u2019t exist or has expired (links last 24 hours).</p>
 </body></html>`;
 
-export default async function handler(req) {
+async function handler(req, env) {
   const url = new URL(req.url);
   const slug = url.pathname.slice(1).toLowerCase().trim();
 
@@ -53,6 +53,7 @@ export default async function handler(req) {
 
   try {
     const result = await queryNeon(
+      env,
       `SELECT url FROM shortlinks
        WHERE slug = $1
          AND created_at >= NOW() - INTERVAL '${TTL_SECONDS} seconds'`,
@@ -76,3 +77,5 @@ export default async function handler(req) {
     return new Response("Internal error", { status: 500 });
   }
 }
+
+export default { fetch: handler };
