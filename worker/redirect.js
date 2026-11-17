@@ -33,7 +33,7 @@ async function queryNeon(env, sql, params = []) {
 }
 
 const NOT_FOUND_HTML = `<!DOCTYPE html>
-<html><head><title>Link Not Found</title></head>
+<html><head><meta charset="utf-8"><title>Link Not Found</title></head>
 <body style="font-family:system-ui,sans-serif;max-width:480px;margin:80px auto;
 text-align:center;color:#1a1a1a">
 <h1 style="font-size:22px">Link Not Found</h1>
@@ -47,7 +47,7 @@ async function handler(req, env) {
   if (!slug || slug === "favicon.ico") {
     return new Response(NOT_FOUND_HTML, {
       status: 404,
-      headers: { "Content-Type": "text/html" },
+      headers: { "Content-Type": "text/html; charset=utf-8" },
     });
   }
 
@@ -64,7 +64,7 @@ async function handler(req, env) {
     if (rows.length === 0) {
       return new Response(NOT_FOUND_HTML, {
         status: 404,
-        headers: { "Content-Type": "text/html" },
+        headers: { "Content-Type": "text/html; charset=utf-8" },
       });
     }
 
