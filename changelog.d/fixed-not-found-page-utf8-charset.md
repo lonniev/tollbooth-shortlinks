@@ -1,1 +1,0 @@
-- The "Link Not Found" page declares UTF-8, so its apostrophe renders instead of mojibake (`â€™`).

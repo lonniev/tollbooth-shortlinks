@@ -5,6 +5,21 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 Changes not yet released live in `changelog.d/`, one file per change — see the README there for why, and `scripts/changelog.py` for what folds them in at release time.
 
+## [0.2.1] — 2026-11-19
+
+### Changed
+
+- Python 3.11 is now the minimum, so every install gets the patched dnspython 2.9.
+
+- The shortlink redirect moved from Val Town, which is shutting down, to a Cloudflare Worker at https://go.tollbooth-dpyc.com, and new links use that address.
+- A change to `worker/redirect.js` on main deploys it and checks an unknown slug gets the "Link Not Found" page. It needs the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets, and the Worker secret `NEON_SHORTLINKS_URL`.
+
+- The MCP Registry listing carries a title (Tollbooth Shortlinks) and a link to https://cafe.tollbooth-dpyc.com/products/tollbooth-shortlinks.
+
+### Fixed
+
+- The "Link Not Found" page declares UTF-8, so its apostrophe renders instead of mojibake (`â€™`).
+
 ## [0.2.0] — 2026-10-21
 
 ### Changed
