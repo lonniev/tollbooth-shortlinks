@@ -1,0 +1,1 @@
+- The MCP Registry listing carries a title (Tollbooth Shortlinks) and a link to https://cafe.tollbooth-dpyc.com/products/tollbooth-shortlinks.

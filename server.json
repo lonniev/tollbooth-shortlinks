@@ -1,7 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.lonniev/tollbooth-shortlinks",
+  "title": "Tollbooth Shortlinks",
   "description": "Ephemeral, human-friendly short URLs for Tollbooth MCP services",
+  "websiteUrl": "https://cafe.tollbooth-dpyc.com/products/tollbooth-shortlinks",
   "version": "0.2.0",
   "repository": {
     "url": "https://github.com/lonniev/tollbooth-shortlinks",
