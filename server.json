@@ -4,7 +4,7 @@
   "title": "Tollbooth Shortlinks",
   "description": "Ephemeral, human-friendly short URLs for Tollbooth MCP services",
   "websiteUrl": "https://cafe.tollbooth-dpyc.com/products/tollbooth-shortlinks",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "repository": {
     "url": "https://github.com/lonniev/tollbooth-shortlinks",
     "source": "github"
