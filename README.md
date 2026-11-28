@@ -91,32 +91,6 @@ shortlinks_url = (svc or {}).get("url", "")
 Operators built on tollbooth-dpyc get this for free: `tollbooth.shortlinks.create_shortlink(url)`
 does the lookup and the call, best-effort.
 
-## Related Repos
-
-The Tollbooth DPYC™ ecosystem:
-
-| Repo | Role |
-|------|------|
-| [tollbooth-dpyc](https://github.com/lonniev/tollbooth-dpyc) | The wheel -- operator-side credit ledger, BTCPay client, tool gating, constraint engine |
-| [tollbooth-authority](https://github.com/lonniev/tollbooth-authority) | The institution -- fee collection, Schnorr signing, purchase certification |
-| [dpyc-oracle](https://github.com/lonniev/dpyc-oracle) | The oracle -- Social Contract governance, membership, ban elections |
-| [dpyc-community](https://github.com/lonniev/dpyc-community) | The registry -- governance data, operator catalog, community rules |
-| [tollbooth-sample](https://github.com/lonniev/tollbooth-sample) | Reference operator -- weather API with full Tollbooth wiring |
-| [cypher-mcp](https://github.com/lonniev/cypher-mcp) | Monetized graph answers -- named Cypher over Neo4j/AuraDB |
-| [schwab-mcp](https://github.com/lonniev/schwab-mcp) | Charles Schwab brokerage MCP -- quotes, positions, orders and transaction history (read-only) |
-| [excalibur-mcp](https://github.com/lonniev/excalibur-mcp) | eXcalibur -- formatted posting to X (Twitter) |
-| [thebrain-mcp](https://github.com/lonniev/thebrain-mcp) | Personal Brain MCP -- thought graphs, knowledge management |
-| [taxsort-mcp](https://github.com/lonniev/taxsort-mcp) | Tax sorting and classification MCP |
-| [optionality-mcp](https://github.com/lonniev/optionality-mcp) | Options analytics MCP |
-| [goodearth-mcp](https://github.com/lonniev/goodearth-mcp) | Good Earth -- region-scoped farm climate analytics |
-| [beesknees-mcp](https://github.com/lonniev/beesknees-mcp) | The Bee's Knees -- a monetized multiplayer race to the queen |
-| [roastify-mcp](https://github.com/lonniev/roastify-mcp) | Roastify coffee catalog and packaging artwork |
-| [ChartRemotely-mcp](https://github.com/lonniev/ChartRemotely-mcp) | ChartRemotely -- drives a desktop chart through a paired agent |
-| [tollbooth-web](https://github.com/lonniev/tollbooth-web) | Shared browser SDK for operator front ends |
-| **tollbooth-shortlinks** (this repo) | Community utility -- ephemeral short URLs for OAuth flows |
-| [tollbooth-oauth2-collector](https://github.com/lonniev/tollbooth-oauth2-collector) | OAuth2 callback collector -- browser-based token exchange |
-| [tollbooth-pricing-studio](https://github.com/lonniev/tollbooth-pricing-studio) | iOS app -- operator dashboard and pricing model editor |
-
 <!-- dpyc-family -->
 ## Part of Tollbooth DPYC™
 
