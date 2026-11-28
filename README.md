@@ -117,6 +117,13 @@ The Tollbooth DPYC™ ecosystem:
 | [tollbooth-oauth2-collector](https://github.com/lonniev/tollbooth-oauth2-collector) | OAuth2 callback collector -- browser-based token exchange |
 | [tollbooth-pricing-studio](https://github.com/lonniev/tollbooth-pricing-studio) | iOS app -- operator dashboard and pricing model editor |
 
+<!-- dpyc-family -->
+## Part of Tollbooth DPYC™
+
+This service is one of the Tollbooth DPYC™ family of MCP servers.
+Browse them all in the [MCP catalog](https://cafe.tollbooth-dpyc.com/collections/mcps).
+The [DPYC Oracle](https://dpyc-oracle.fastmcp.app/mcp) lists the live network with its free `list_services` tool.
+
 ## License
 
 Apache-2.0. See [LICENSE](LICENSE) for details.
